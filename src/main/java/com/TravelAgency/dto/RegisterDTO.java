@@ -4,39 +4,92 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.Max;
+import javax.validation.constraints.Size;
 
 /**
  * Created by Marcin on 17.04.2018.
  */
 public class RegisterDTO {
 
-   // @NotEmpty
-    @Max(15)
+    @Size(max=15)
+    @NotEmpty
     private String login;
 
-    //@NotEmpty
-    @Max(25)
+
+    @Size(max=25)
+    @NotEmpty
     private String haslo;
 
+    @Size(max=15)
     @NotEmpty
     private String imie;
 
+    @Size(max=25)
     @NotEmpty
     private String nazwisko;
 
+    @Size(min=11 ,max=11, message = "PESEL musi mieć 11 znaków")
     private String pesel;
 
-    //@NotEmpty
-    private String adres;
+    @Size(max = 60)
+    @NotEmpty
+    private String miejscowosc;
 
-    //@NotEmpty
+    @Size
+    @NotEmpty
+    private String kod_pocztowy;
+
+    @Size(max = 70)
+    @NotEmpty
+    private String ulica;
+
+    @Size(max = 15)
+    @NotEmpty
+    private String nr_domu_mieszkania;         // dodaj poszczególne dodatkowe dane tak jak w formularzu rejstracji
+
+    @Size(max=15)
+    @NotEmpty
     private String nr_kontaktowy;
 
-    //@NotEmpty
-    //@Email
+    @Size(max=30)
+    @NotEmpty
+    @Email
     private String e_mail;
 
- public String getLogin() {
+
+    public String getMiejscowosc() {
+        return miejscowosc;
+    }
+
+    public void setMiejscowosc(String miejscowosc) {
+        this.miejscowosc = miejscowosc;
+    }
+
+    public String getKod_pocztowy() {
+        return kod_pocztowy;
+    }
+
+    public void setKod_pocztowy(String kod_pocztowy) {
+        this.kod_pocztowy = kod_pocztowy;
+    }
+
+    public String getUlica() {
+        return ulica;
+    }
+
+    public void setUlica(String ulica) {
+        this.ulica = ulica;
+    }
+
+    public String getNr_domu_mieszkania() {
+        return nr_domu_mieszkania;
+    }
+
+    public void setNr_domu_mieszkania(String nr_domu_mieszkania) {
+        this.nr_domu_mieszkania = nr_domu_mieszkania;
+    }
+
+    public String getLogin() {
   return login;
  }
 
@@ -75,15 +128,6 @@ public class RegisterDTO {
  public void setPesel(String pesel) {
   this.pesel = pesel;
  }
-
- public String getAdres() {
-  return adres;
- }
-
- public void setAdres(String adres) {
-  this.adres = adres;
- }
-
  public String getNr_kontaktowy() {
   return nr_kontaktowy;
  }

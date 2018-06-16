@@ -22,13 +22,21 @@ public class HomeController {
         return "home";
     }
 
+    @RequestMapping("/home")
+    public String home2(){
+        return "home";
+    }
+
     @RequestMapping(path = "/save")
     @ResponseBody
     public String testSaveDAO(){
         dane_uzytkownika dane = new dane_uzytkownika();
         dane.setId(1);
         dane.setLogin("login");
-        dane.setAdres("Adres test");
+        dane.setMiejscowosc("Osiek");
+        dane.setKod_pocztowy("19-231");
+        dane.setUlica("jasna");
+        dane.setNr_domu_mieszkania("48a");
         dane.setE_mail("email@wp.pl");
         dane.setHaslo("haslo");
         dane.setImie("Imie");

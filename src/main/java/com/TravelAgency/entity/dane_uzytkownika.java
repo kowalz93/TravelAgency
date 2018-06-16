@@ -27,14 +27,55 @@ public class dane_uzytkownika {
     @Column(name = "pesel")
     private String pesel;
 
-    @Column(name = "adres")
-    private String adres;
-
     @Column(name = "nr_kontaktowy")
     private String nr_kontaktowy;
 
     @Column(name = "e_mail")
     private String e_mail;
+
+    @Column(name = "miejscowosc")   // tutaj takżę  !
+    private String miejscowosc;
+
+    @Column(name = "kod_pocztowy")
+    private String kod_pocztowy;
+
+    @Column(name = "ulica")
+    private String ulica;
+
+    @Column(name = "nr_domu_mieszkania")
+    private String nr_domu_mieszkania;
+
+    public String getMiejscowosc() {
+        return miejscowosc;
+    }
+
+    public void setMiejscowosc(String miejscowosc) {
+        this.miejscowosc = miejscowosc;
+    }
+
+    public String getKod_pocztowy() {
+        return kod_pocztowy;
+    }
+
+    public void setKod_pocztowy(String kod_pocztowy) {
+        this.kod_pocztowy = kod_pocztowy;
+    }
+
+    public String getUlica() {
+        return ulica;
+    }
+
+    public void setUlica(String ulica) {
+        this.ulica = ulica;
+    }
+
+    public String getNr_domu_mieszkania() {
+        return nr_domu_mieszkania;
+    }
+
+    public void setNr_domu_mieszkania(String nr_domu_mieszkania) {
+        this.nr_domu_mieszkania = nr_domu_mieszkania;
+    }
 
     public Integer getId() {
         return id;
@@ -84,14 +125,6 @@ public class dane_uzytkownika {
         this.pesel = pesel;
     }
 
-    public String getAdres() {
-        return adres;
-    }
-
-    public void setAdres(String adres) {
-        this.adres = adres;
-    }
-
     public String getNr_kontaktowy() {
         return nr_kontaktowy;
     }
@@ -108,19 +141,19 @@ public class dane_uzytkownika {
         this.e_mail = e_mail;
     }
 
-    @Override
-    public String toString() {
-        return "dane_uzytkownika{" +
-                "id=" + id +
-                ", login='" + login + '\'' +
-                ", haslo='" + haslo + '\'' +
-                ", imie='" + imie + '\'' +
-                ", nazwisko='" + nazwisko + '\'' +
-                ", pesel=" + pesel +
-                ", adres='" + adres + '\'' +
-                ", nr_kontaktowy='" + nr_kontaktowy + '\'' +
-                ", e_mail='" + e_mail + '\'' +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "dane_uzytkownika{" +
+//                "id=" + id +
+//                ", login='" + login + '\'' +
+//                ", haslo='" + haslo + '\'' +
+//                ", imie='" + imie + '\'' +
+//                ", nazwisko='" + nazwisko + '\'' +
+//                ", pesel=" + pesel +
+//                ", miejscowosc='"  + miejscowosc '\'' +
+//                ", nr_kontaktowy='" + nr_kontaktowy + '\'' +
+//                ", e_mail='" + e_mail + '\'' +
+//                '}';
+//    }
 
 }

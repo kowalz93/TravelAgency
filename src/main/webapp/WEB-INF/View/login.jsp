@@ -5,6 +5,11 @@
   Time: 18:50
   To change this template use File | Settings | File Templates.
 --%>
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 
@@ -12,35 +17,76 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="https://v40.pingendo.com/assets/4.0.0/default/theme.css" type="text/css"> </head>
+    <link rel="stylesheet" href="https://v40.pingendo.com/assets/4.0.0/default/theme.css" type="text/css">
 
-<body class="text-left">
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <style type="text/css">
+        .klasa_css{
+            color: red;
+        }
+    </style>
+</head>
+
+<body class="bg-info">
+<nav class="navbar navbar-expand-md navbar-dark bg-primary">
     <div class="container">
-        <a class="navbar-brand" href="#"><i class="fa d-inline fa-lg fa-bullseye text-warning"></i></a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
-        <div class="collapse navbar-collapse text-center justify-content-between" id="navbar2SupportedContent">
-            <ul class="navbar-nav">
-                <li class="nav-item text-warning">
-                    <a class="nav-link mx-2 text-warning" href="#"><b>Promocje</b></a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto text-uppercase">
+                <li class="nav-item text-dark m-1">
+                    <a class="nav-link" href="Oferta/oferta.html">
+                        <b class="text-dark">
+                            <b class="text-dark">Oferta</b>
+                        </b>
+                    </a>
                 </li>
-                <li class="nav-item text-warning">
-                    <a class="nav-link mx-2 text-warning" href="#"><b>Nowości</b></a>
+                <li class="nav-item m-1 text-dark">
+                    <a class="nav-link text-dark" href="#">
+                        <b class="text-dark">
+                            <b class="text-dark">Last Minute</b>
+                        </b>
+                    </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link mx-2 text-warning" href="#"><b>Rezerwuj</b></a>
+                <li class="nav-item m-1">
+                    <a class="nav-link" href="#">
+                        <b class="text-warning">
+                            <b class="text-dark">Nowości</b>
+                        </b>
+                    </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-warning" href="#"><b>O nas</b></a>
+                <li class="nav-item m-1 text-dark">
+                    <a class="nav-link text-white" href="#">
+                        <b>
+                            <b class="text-dark">Rezerwuj</b>
+                        </b>
+                    </a>
+                </li>
+                <li class="nav-item m-1 text-dark">
+                    <a class="nav-link" href="blank.html">
+                        <b>
+                            <b class="text-dark">O nas</b>
+                        </b>
+                    </a>
+                </li>
+                <li class="nav-item m-1 text-uppercase">
+                    <a class="nav-link" href="#">
+                        <b class="text-dark">
+                            <b class="text-dark">Kontakt</b>
+                        </b>
+                    </a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control" type="text">
-                <button class="btn btn-link my-2 my-sm-0" type="submit"><i class="fa d-inline fa-lg fa-search text-warning"></i></button>
-            </form>
-            <a class="btn btn-default navbar-btn text-warning" href="logowanie.html"><b>Logowanie</b></a>
-            <a class="btn btn-default navbar-btn text-warning" href="rejstracja.html"><b>Rejstracja</b></a>
+            <a class="btn btn-default navbar-btn btn-sm m-1 btn-warning" href="/login" >
+                <b>
+                    <b>Logowanie</b>
+                </b>
+            </a>
+            <a class="btn btn-default navbar-btn m-1 btn-warning btn-sm" href="/register">
+                <b class="text-dark">
+                    <b>Rejstracja</b>
+                </b>
+            </a>
         </div>
     </div>
 </nav>
@@ -48,27 +94,59 @@
     <div class="container p-2 w-100">
         <div class="row">
             <div class="text-center col-md-6 p-1">
-                <h2 class="text-left"><b>Logowanie</b></h2>
+                <h2 class="text-left">
+                    <b>Logowanie</b>
+                </h2>
             </div>
         </div>
     </div>
 </div>
-<div class="">
-    <div class="container p-2 h-50 w-100">
+<div class="bg-light">
+    <div class="container p-2 w-100">
         <div class="row">
-            <div class="order-md-1 col-md-6 bg-dark p-1 ">
-                <form class="needs-validation p-1" novalidate="" action="">
-                    <div class="mb-3"> <label for="login" class="text-left">Login</label>
+            <div class="order-md-1 col-md-6 p-1">
+                <form class="needs-validation p-1 bg-light border border-primary" novalidate="" action="login" method="POST">
+                    <div class="mb-3">
+                        <label for="login" class="text-left">Login</label>
                         <div class="input-group">
                             <div class="invalid-feedback" style="width: 100%;"> Your username is required. </div>
                         </div>
-                        <input type="text" class="form-control" id="Hasło" required="" placeholder="Login"> </div>
-                    <div class="mb-3"> <label for="password">Hasło</label>
-                        <input type="password" class="form-control" id="Hasło" required="" placeholder="Hasło">
+                        <input type="text" class="form-control" id="login" required="" placeholder="Login" name="username"> </div>
+                    <div class="mb-3">
+                        <label for="password">Hasło</label>
+                        <input type="password" class="form-control" id="password" required="" placeholder="Hasło" name = "password" >
                         <div class="invalid-feedback"> Please enter your password. </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="remember-me">Zapamiętaj</label>
+                        <input type="checkbox" id="remember-me" name="remember-me" />
                     </div>
                     <button class="btn btn-primary btn-sm" type="submit" data-toggle="modal">Zaloguj</button>
                 </form>
+                <c:if test="${not empty param['error']}">
+                    <p class="klasa_css">Niepoprawny login lub hasło</p>
+                </c:if>
+            </div>
+        </div>
+    </div>
+    <div class="container py-5 my-4"></div>
+</div>
+<div class="text-muted text-center py-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 my-1">
+                <p class="mb-1">© 2017-2018 Company Name</p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <a href="#">Privacy</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">Terms</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">Support</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
@@ -76,7 +154,9 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+<pingendo onclick="window.open('https://pingendo.com/', '_blank')" style="cursor:pointer;position: fixed;bottom: 10px;right:10px;padding:4px;background-color: #00b0eb;border-radius: 8px; width:180px;display:flex;flex-direction:row;align-items:center;justify-content:center;font-size:14px;color:white">Made with Pingendo&nbsp;&nbsp;
+    <img src="https://pingendo.com/site-assets/Pingendo_logo_big.png" class="d-block" alt="Pingendo logo" height="16">
+</pingendo>
 </body>
 
 </html>

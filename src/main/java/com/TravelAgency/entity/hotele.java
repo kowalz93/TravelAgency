@@ -14,9 +14,6 @@ public class hotele {
     private Integer id;
 
     @Column
-    private Integer idOferty;
-
-    @Column
     private String nazwa_hotelu;
 
     @Column
@@ -25,12 +22,6 @@ public class hotele {
     @Column
     private String standard_hotelu;
 
-    @Column
-    private Integer idUzytkownika_rezerwacja;
-
-    @Column
-    private Integer idUzytkownika_zakup;
-
 
     public Integer getId() {
         return id;
@@ -38,14 +29,6 @@ public class hotele {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Integer getIdOferty() {
-        return idOferty;
-    }
-
-    public void setIdOferty(Integer idOferty) {
-        this.idOferty = idOferty;
     }
 
     public String getNazwa_hotelu() {
@@ -72,19 +55,6 @@ public class hotele {
         this.standard_hotelu = standard_hotelu;
     }
 
-    public Integer getIdUzytkownika_rezerwacja() {
-        return idUzytkownika_rezerwacja;
-    }
 
-    public void setIdUzytkownika_rezerwacja(Integer idUzytkownika_rezerwacja) {
-        this.idUzytkownika_rezerwacja = idUzytkownika_rezerwacja;
-    }
 
-    public Integer getIdUzytkownika_zakup() {
-        return idUzytkownika_zakup;
-    }
-
-    public void setIdUzytkownika_zakup(Integer idUzytkownika_zakup) {
-        this.idUzytkownika_zakup = idUzytkownika_zakup;
-    }
 }
