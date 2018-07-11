@@ -5,6 +5,7 @@
   Time: 18:38
   To change this template use File | Settings | File Templates.
 --%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
@@ -24,69 +25,87 @@
 </head>
 
 <body class="bg-info">
-<nav class="navbar navbar-expand-md navbar-dark bg-primary" >
-    <div class="container">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto text-uppercase">
-                <li class="nav-item text-dark m-1">
-                    <a class="nav-link" href="#">
-                        <b class="text-dark">
-                            <b class="text-dark">Oferta</b>
-                        </b>
-                    </a>
-                </li>
-                <li class="nav-item m-1 text-dark">
-                    <a class="nav-link text-dark" href="#">
-                        <b class="text-dark">
-                            <b class="text-dark">Last Minute</b>
-                        </b>
-                    </a>
-                </li>
-                <li class="nav-item m-1">
-                    <a class="nav-link" href="#">
-                        <b class="text-warning">
-                            <b class="text-dark">Nowości</b>
-                        </b>
-                    </a>
-                </li>
-                <li class="nav-item m-1 text-dark">
-                    <a class="nav-link text-white" href="#">
-                        <b>
-                            <b class="text-dark">Rezerwuj</b>
-                        </b>
-                    </a>
-                </li>
-                <li class="nav-item m-1 text-dark">
-                    <a class="nav-link" href="blank.html">
-                        <b>
-                            <b class="text-dark">O nas</b>
-                        </b>
-                    </a>
-                </li>
-                <li class="nav-item m-1 text-uppercase">
-                    <a class="nav-link" href="#">
-                        <b class="text-dark">
-                            <b class="text-dark">Kontakt</b>
-                        </b>
-                    </a>
-                </li>
-            </ul>
-            <a class="btn btn-default navbar-btn btn-sm m-1 btn-warning text-dark" href="/login">
-                <b>
-                    <b>Logowanie</b>
-                </b>
-            </a>
-            <a class="btn btn-default navbar-btn m-1 btn-warning btn-sm" href="/register">
-                <b class="text-dark">
-                    <b>Rejstracja</b>
-                </b>
-            </a>
-        </div>
-    </div>
-</nav>
+<%--<nav class="navbar navbar-expand-md navbar-dark bg-primary">--%>
+    <%--<div class="container">--%>
+        <%--<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">--%>
+            <%--<span class="navbar-toggler-icon"></span>--%>
+        <%--</button>--%>
+        <%--<div class="collapse navbar-collapse" id="navbarSupportedContent">--%>
+            <%--<ul class="navbar-nav text-uppercase mr-auto">--%>
+                <%--<li class="nav-item text-dark m-1">--%>
+                    <%--<a class="nav-link" href="/album1">--%>
+                        <%--<b class="text-dark">--%>
+                            <%--<b class="text-dark">--%>
+                                <%--<span style="font-weight: normal;">Oferta</span>--%>
+                            <%--</b>--%>
+                        <%--</b>--%>
+                    <%--</a>--%>
+                <%--</li>--%>
+                <%--<li class="nav-item m-1 text-dark">--%>
+                    <%--<a class="nav-link text-dark" href="#">--%>
+                        <%--<b class="text-dark">--%>
+                            <%--<b class="text-dark">--%>
+                                <%--<span style="font-weight: normal;">Last Minute</span>--%>
+                            <%--</b>--%>
+                        <%--</b>--%>
+                    <%--</a>--%>
+                <%--</li>--%>
+                <%--<li class="nav-item m-1 text-dark">--%>
+                    <%--<a class="nav-link text-white" href="#">--%>
+                        <%--<b>--%>
+                            <%--<b class="text-dark">--%>
+                                <%--<span style="font-weight: normal;">O nas</span>--%>
+                            <%--</b>--%>
+                        <%--</b>--%>
+                    <%--</a>--%>
+                <%--</li>--%>
+                <%--<li class="nav-item m-1 text-uppercase">--%>
+                    <%--<a class="nav-link" href="#">--%>
+                        <%--<b class="text-dark">--%>
+                            <%--<b class="text-dark">--%>
+                                <%--<span style="font-weight: normal;">Opinie</span>--%>
+                            <%--</b>--%>
+                        <%--</b>--%>
+                    <%--</a>--%>
+                <%--</li>--%>
+                <%--<li class="nav-item m-1 text-uppercase">--%>
+                    <%--<a class="nav-link" href="#">--%>
+                        <%--<b class="text-dark">--%>
+                            <%--<b class="text-dark">--%>
+                                <%--<span style="font-weight: normal;">Kontakt</span>--%>
+                            <%--</b>--%>
+                        <%--</b>--%>
+                    <%--</a>--%>
+                <%--</li>--%>
+            <%--</ul>--%>
+            <%--<a class="btn btn-default navbar-btn btn-sm m-1 btn-warning text-dark" href="/login">--%>
+                <%--<b>--%>
+                    <%--<b>Logowanie</b>--%>
+                <%--</b>--%>
+            <%--</a>--%>
+            <%--<a class="btn btn-default navbar-btn m-1 btn-warning btn-sm" href="/register">--%>
+                <%--<b class="text-dark">--%>
+                    <%--<b>Rejstracja</b>--%>
+                <%--</b>--%>
+            <%--</a>--%>
+        <%--</div>--%>
+    <%--</div>--%>
+    <%--<span class="navbar-text">--%>
+      <%--<p class="mb-0 text-dark text-left">--%>
+        <%--<u>pon-pt</u> &nbsp;--%>
+        <%--<b>9:00 - 21:00</b>&nbsp;--%>
+        <%--<br>--%>
+        <%--<u>sb-nd</u> &nbsp;--%>
+        <%--<b>10:00 - 16:00</b>&nbsp;--%>
+        <%--<br>--%>
+        <%--<u>Infolinia</u>--%>
+        <%--<b> +48 45 858 85 85</b>--%>
+        <%--<br>--%>
+      <%--</p>--%>
+    <%--</span>--%>
+<%--</nav>--%>
+
+<jsp:include page="menu.jsp" />
 <div class="p-3"></div>
 <div class="bg-light">
     <div class="container bg-light">
@@ -191,19 +210,8 @@
 <div class="text-muted text-center py-1">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 my-2">
-                <p class="mb-1">© 2017-2018 Company Name</p>
-                <ul class="list-inline">
-                    <li class="list-inline-item">
-                        <a href="#">Privacy</a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#">Terms</a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#">Support</a>
-                    </li>
-                </ul>
+            <div class="col-md-12 my-4">
+                <p class="mb-1">© 2018-2019 Viaggo</p>
             </div>
         </div>
     </div>

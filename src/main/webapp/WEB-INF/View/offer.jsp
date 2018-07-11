@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 
@@ -49,13 +50,13 @@
         </div>
     </div>
 </div>
+
 <jsp:include page="menu.jsp" />
-${ofertaAtrr.opis}
 <div class="">
     <div class="container-fluid">
         <div class="row bg-light">
             <div class="col-md-12 bg-light">
-                <h1 class="display-1">Słoneczna Korsyka</h1>
+                <h1 class="display-1">${offerAtrr.tytul}</h1>
                 <div class="row">
                     <div class="col-md-8">
                         <div id="carousel" class="carousel slide" data-ride="carousel">
@@ -89,12 +90,33 @@ ${ofertaAtrr.opis}
                     </div>
                     <div class="col-md-4 py-4">
                         <ul class="">
-                            <li>One</li>
+                            <%--"expresion lang"--%>
+                            ${offerAtrr.opis}
+                                <%-- Edytuj cene, jakaś grafika żeby była widoczna.--%>
+
+                            <li>${offerAtrr.cena}</li>
                             <li>Two</li>
                             <li>Three</li>
                         </ul>
-                        <a href="#" class="btn btn-outline-primary ml-auto">Rezerwacja</a>
-                        <a href="#" class="btn btn-outline-primary text-center mr-auto">&nbsp; &nbsp; Zakup &nbsp; &nbsp;</a>
+                        <a href="/addReservation?id=${offerAtrr.id}" class="btn btn-outline-primary ml-auto">Rezerwacja</a>
+                        <a href="/addPurchase?id=${offerAtrr.id}" class="btn btn-outline-primary text-center mr-auto">&nbsp; &nbsp; Zakup &nbsp; &nbsp;</a>
+
+                        <c:if test="${addReservationInfo1 != null && addReservationInfo1 != ''}">
+                            <p></p>
+                            <c:if test="${addReservationInfo2 != null && addReservationInfo2 == 'true'}">
+                                <div class="alert alert-success" role="alert">
+                                        ${addReservationInfo1}
+                                </div>
+                            </c:if>
+
+                            <c:if test="${addReservationInfo2 != null && addReservationInfo2 == 'false'}">
+                                <div class="alert alert-danger" role="alert">
+                                        ${addReservationInfo1}
+                                </div>
+                            </c:if>
+
+
+                        </c:if>
                     </div>
                 </div>
             </div>
@@ -105,19 +127,19 @@ ${ofertaAtrr.opis}
     <div class="container-fluid">
         <div class="row py-5 bg-info">
             <div class="col-md-3 col-6">
-                <a href="stories.html">
+                <a href="../photos/offer/Tunezja1.jpg">
                     <img src="https://pingendo.github.io/templates/sections/assets/stories_6.jpg" class="img-fluid"> </a>
             </div>
             <div class="col-md-3 col-6">
-                <a href="stories.html">
+                <a href="../photos/offer/Tunezja2.jpg">
                     <img src="https://pingendo.github.io/templates/sections/assets/stories_2.jpg" class="img-fluid"> </a>
             </div>
             <div class="col-md-3 col-6">
-                <a href="stories.html">
+                <a href="../photos/offer/Tunezja3.jpg">
                     <img src="https://pingendo.github.io/templates/sections/assets/stories_3.jpg" class="img-fluid"> </a>
             </div>
             <div class="col-md-3 col-6">
-                <a href="stories.html">
+                <a href="../photos/offer/Tunezja4.jpg">
                     <img src="https://pingendo.github.io/templates/sections/assets/stories_1.jpg" class="img-fluid"> </a>
             </div>
         </div>
@@ -128,8 +150,7 @@ ${ofertaAtrr.opis}
         <div class="row text-center">
             <div class="col-md-12">
                 <h1 class="mb-4 text-primary">Benefits and features</h1>
-                <p class="lead">Design unique interfaces by customizing Bootstrap theme with Pingendo.
-                    <br>Modify colors, fonts and grid setting without opening any CSS file.</p>
+                <p class="lead">${offerAtrr.benefits_and_features}</p>
                 <div class="row text-left mt-5">
                     <div class="col-md-4 my-3">
                         <div class="row mb-3">
@@ -142,7 +163,7 @@ ${ofertaAtrr.opis}
                                 </h5>
                             </div>
                         </div>
-                        <p>Based on fluid design principles. Works with screen resolution. &nbsp;In-app chat panel 24/7 active. The support you need, right there.</p>
+                        <p>${offerAtrr.for_him}</p>
                     </div>
                     <div class="col-md-4 my-3">
                         <div class="row mb-3">
@@ -155,7 +176,7 @@ ${ofertaAtrr.opis}
                                 </h5>
                             </div>
                         </div>
-                        <p>Help us spreading the word. Tell your friends with just one-click.&nbsp;Work simultaneously on different panels with the switcher</p>
+                        <p>${offerAtrr.for_her}</p>
                     </div>
                     <div class="col-md-4 my-3">
                         <div class="row mb-3">
@@ -168,7 +189,7 @@ ${ofertaAtrr.opis}
                                 </h5>
                             </div>
                         </div>
-                        <p>You are working with plain HTML and SASS files on your computer, so extending and integrating Javascript is a breeze.</p>
+                        <p>${offerAtrr.for_kids}</p>
                     </div>
                     <div class="col-md-4 my-3">
                         <div class="row mb-3">
@@ -181,7 +202,7 @@ ${ofertaAtrr.opis}
                                 </h5>
                             </div>
                         </div>
-                        <p>Based on fluid design principles. Works with screen resolution.&nbsp;Choose settings depending on the criteria you value the most.</p>
+                        <p>${offerAtrr.for_anyone}</p>
                     </div>
                     <div class="col-md-4 my-3">
                         <div class="row mb-3">
@@ -194,7 +215,7 @@ ${ofertaAtrr.opis}
                                 </h5>
                             </div>
                         </div>
-                        <p>In-app chat panel 24/7 active. The support you need, right there. Pingendo enhance the battery duration and the quality of your life.&nbsp;</p>
+                        <p>${offerAtrr.even_couples}</p>
                     </div>
                     <div class="col-md-4 my-3">
                         <div class="row mb-3">
@@ -207,7 +228,7 @@ ${ofertaAtrr.opis}
                                 </h5>
                             </div>
                         </div>
-                        <p>Help us spreading the word. Tell your friends with just one-click.&nbsp;Work simultaneously on different panels. Share the work with teammates.</p>
+                        <p>${offerAtrr.any_other}</p>
                     </div>
                 </div>
             </div>
@@ -223,7 +244,7 @@ ${ofertaAtrr.opis}
         </div>
         <div class="row">
             <div class="col-md-12">
-                <p class="">Paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p class="">${offerAtrr.szczegoly_oferty}</p>
             </div>
         </div>
         <div class="row">

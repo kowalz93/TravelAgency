@@ -32,7 +32,7 @@ public class oferty {
     private String opis;
 
     @Column
-    private DecimalFormat cena;
+    private BigDecimal cena;
 
     @Column
     private String zdjecie1;
@@ -121,11 +121,11 @@ public class oferty {
         this.opis = opis;
     }
 
-    public DecimalFormat getCena() {
+    public BigDecimal getCena() {
         return cena;
     }
 
-    public void setCena(DecimalFormat cena) {
+    public void setCena(BigDecimal cena) {
         this.cena = cena;
     }
 

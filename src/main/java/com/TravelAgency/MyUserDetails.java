@@ -18,6 +18,8 @@ public class MyUserDetails implements UserDetailsService {
     @Autowired
     PasswordEncoder passwordEncoder;
 
+    private dane_uzytkownika userData;
+
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         dane_uzytkownika user = userDAO.getByUsername(username);
 
@@ -28,7 +30,12 @@ public class MyUserDetails implements UserDetailsService {
             throw new UsernameNotFoundException("Nie znaleziono uzytkownika dla loginu=" + username);
         }
 
+        userData = user;
+
         return new UserData(user);
     }
 
+    public dane_uzytkownika getUserData() {
+        return userData;
+    }
 }

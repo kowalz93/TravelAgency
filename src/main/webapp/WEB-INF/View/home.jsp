@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Marcin
-  Date: 13.03.2018
-  Time: 15:51
+  Date: 17.06.2018
+  Time: 01:35
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
@@ -17,9 +17,85 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="https://v40.pingendo.com/assets/4.0.0/default/theme.css" type="text/css">
 </head>
-
 <body class="">
 <jsp:include page="menu.jsp" />
+<%--<nav class="navbar navbar-expand-md navbar-dark bg-primary">--%>
+    <%--<div class="container">--%>
+        <%--<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">--%>
+            <%--<span class="navbar-toggler-icon"></span>--%>
+        <%--</button>--%>
+        <%--<div class="collapse navbar-collapse" id="navbarSupportedContent">--%>
+            <%--<p class="lead text-warning mr-auto">--%>
+                <%--<br> </p>--%>
+            <%--<p class="lead mr-auto text-warning">--%>
+                <%--<i>Viaggo - Travel Agency</i>--%>
+            <%--</p>--%>
+            <%--<ul class="navbar-nav text-uppercase mr-auto">--%>
+                <%--<li class="nav-item text-dark m-1">--%>
+                    <%--<a class="nav-link" href="/album1 ">--%>
+                        <%--<b class="text-dark">--%>
+                            <%--<b class="text-dark">OFERTA</b>--%>
+                        <%--</b>--%>
+                    <%--</a>--%>
+                <%--</li>--%>
+                <%--<li class="nav-item m-1 text-dark">--%>
+                    <%--<a class="nav-link text-dark" href="#">--%>
+                        <%--<b class="text-dark">--%>
+                            <%--<b class="text-dark">Last Minute</b>--%>
+                        <%--</b>--%>
+                    <%--</a>--%>
+                <%--</li>--%>
+                <%--<li class="nav-item m-1 text-dark">--%>
+                    <%--<a class="nav-link text-white" href="#">--%>
+                        <%--<b>--%>
+                            <%--<b class="text-dark">O nas</b>--%>
+                        <%--</b>--%>
+                    <%--</a>--%>
+                <%--</li>--%>
+                <%--<li class="nav-item m-1 text-uppercase">--%>
+                    <%--<a class="nav-link" href="#">--%>
+                        <%--<b class="text-dark">--%>
+                            <%--<b class="text-dark">Opinie</b>--%>
+                        <%--</b>--%>
+                    <%--</a>--%>
+                <%--</li>--%>
+                <%--<li class="nav-item m-1 text-uppercase">--%>
+                    <%--<a class="nav-link" href="#">--%>
+                        <%--<b class="text-dark">--%>
+                            <%--<b class="text-dark">Kontakt</b>--%>
+                        <%--</b>--%>
+                    <%--</a>--%>
+                <%--</li>--%>
+            <%--</ul>--%>
+            <%--<c:if test="${pageContext.request.userPrincipal.name == null}">--%>
+            <%--<a class="btn btn-default navbar-btn btn-sm btn-warning m-1" href="/login">--%>
+                <%--<b>--%>
+                    <%--<b>Logowanie</b>--%>
+                <%--</b>--%>
+            <%--</a>--%>
+            <%--<a class="btn btn-default navbar-btn m-1 btn-warning btn-sm" href="/register">--%>
+                <%--<b class="text-dark">--%>
+                    <%--<b>Rejstracja</b>--%>
+                <%--</b>--%>
+            <%--</a>--%>
+            <%--</c:if>--%>
+
+            <%--<c:if test="${pageContext.request.userPrincipal.name != null}">--%>
+                <%--<b class="text-dark">--%>
+                    <%--Witaj ${pageContext.request.userPrincipal.principal.user.imie} &lt;%&ndash;${pageContext.request.userPrincipal.principal.user.nazwisko} &ndash;%&gt; &nbsp;&nbsp;&nbsp;--%>
+
+                <%--</b>--%>
+                <%--<a class="btn btn-default navbar-btn m-1 btn-warning btn-sm" href="/logout">--%>
+                    <%--<b class="text-dark">--%>
+                        <%--<b >Wyloguj</b>--%>
+                    <%--</b>--%>
+                <%--</a>--%>
+            <%--</c:if>--%>
+
+
+        <%--</div>--%>
+    <%--</div>--%>
+<%--</nav>--%>
 <div class="d-flex align-items-center bg-info h-50" style="background-image: url(&quot;../Picture/beach.jpg&quot;); background-size:cover; background-position: center center;">
     <div class="container">
         <div class="row">
@@ -38,7 +114,8 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
-                    <img class="card-img" src="resources/photos/Greece.jpg" alt="Card image">
+                    ${pageContext.request.contextPath}
+                    <img class="card-img" src="resources/Greece" alt="Card image">
                     <div class="card-body">
                         <h4 id="Grecja" class="text-dark">
                             <b>Grecja - Santorini</b>
@@ -50,7 +127,8 @@
             </div>
             <div class="col-md-4">
                 <div class="card">
-                    <img class="card-img" src="/resources/beach.jpg" alt="Card image">
+                    <%--żle podana ścieżka do zdjecia--%>
+                    <img class="card-img" src="/resources/photos/beach.jpg" alt="Card image">
                     <div class="card-body">
                         <h4 class="card-title">
                             <b class="text-dark">Hiszpania - Barcelona</b>
@@ -62,7 +140,7 @@
             </div>
             <div class="col-md-4">
                 <div class="card">
-                    <img class="card-img" src="../małe obrazki/pexels-photo-10922.jpeg" alt="Card image">
+                    <img class="card-img" src="resources/photos/Rzym.jpg" alt="Card image">
                     <div class="card-body">
                         <h4 class="card-title text-dark">
                             <b>Włochy - Rzym</b>
@@ -89,7 +167,7 @@
                     </p>
                     <div class="blockquote-footer text-warning">Jan Nowak</div>
                 </div>
-                <a class="btn btn-warning" href="#" contenteditable="true">Więcej opinie użytkowników naszego biura</a>
+                <a class="btn btn-warning" href="/opinions" >Więcej opinie użytkowników naszego biura</a>
             </div>
         </div>
     </div>
@@ -179,11 +257,25 @@
 <div class="bg-dark py-3 bg-gradient">
     <div class="container">
         <div class="row d-flex justify-content-between">
-            <div class="col-lg-4 col-md-6">
-                <p class="mb-0 text-dark">Copyright &amp; All Rights Reserved</p>
+            <div class="col-lg-4 col-md-4 text-center">
+                <p class="mb-0 text-dark">
+                    <br>Copyright &amp; All Rights Reserved</p>
             </div>
-            <div class="col-lg-4 col-md-6">
-                <p class="mb-0 text-dark">2018 - Viaggio</p>
+            <div class="col-lg-4 col-md-4">
+                <p class="mb-0 text-dark text-center">
+                    <br>© 2018-2019 Viaggo</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <p class="mb-0 text-dark">
+                    <u>pon-pt</u>&nbsp; &nbsp;
+                    <b>9:00 - 21:00 </b>&nbsp;
+                    <br>
+                    <u>sb-nd</u>
+                    <b>&nbsp; 10:00 - 16:00 &nbsp;</b>
+                    <br>
+                    <u>Infolinia</u>
+                    <b>+48 45 858 85 85</b>
+                </p>
             </div>
         </div>
     </div>
