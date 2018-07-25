@@ -50,15 +50,15 @@
                         </b>
                     </a>
                 </li>
-                <li class="nav-item m-1 text-dark">
-                    <a class="nav-link text-white" href="/about">
-                        <b>
-                            <b class="text-dark">
-                                <span style="font-weight: normal;">O nas</span>
-                            </b>
-                        </b>
-                    </a>
-                </li>
+                <%--<li class="nav-item m-1 text-dark">--%>
+                    <%--<a class="nav-link text-white" href="/about">--%>
+                        <%--<b>--%>
+                            <%--<b class="text-dark">--%>
+                                <%--<span style="font-weight: normal;">O nas</span>--%>
+                            <%--</b>--%>
+                        <%--</b>--%>
+                    <%--</a>--%>
+                <%--</li>--%>
                 <li class="nav-item m-1 text-uppercase">
                     <a class="nav-link" href="/opinions">
                         <b class="text-dark">
@@ -79,10 +79,10 @@
                 </li>
                 <c:if test="${pageContext.request.userPrincipal.name != null}">
                 <li class="nav-item m-1 text-uppercase">
-                    <a class="nav-link" href="/user_profile">
+                    <a class="nav-link" href="/user_reservations">
                         <b class="text-dark">
                             <b class="text-dark">
-                                <span style="font-weight: normal;">Profil Uzytkownika</span>
+                                <span style="font-weight: normal;">Twoje rezerwacje</span>
                             </b>
                         </b>
                     </a>

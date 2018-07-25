@@ -25,7 +25,7 @@ public class OfertyDAO {
     }
 
     public oferty get(int id){
-        System.out.println("#### start");
+        System.out.println("#### start"); /// to już masz
         Session session = sessionFactory.getCurrentSession();
         oferty of =  (oferty) session.get(oferty.class, id);
         System.out.println("#### koniec");

@@ -2,8 +2,7 @@ package com.TravelAgency.entity;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.text.DecimalFormat;
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * Created by Marcin on 16.04.2018.
@@ -16,8 +15,8 @@ public class oferty {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column
-    private Integer idmiasta;
+///*    @Column
+//    private Integer idmiasta;*/
 
     @Column
     private Date data_od;
@@ -73,6 +72,11 @@ public class oferty {
     @Column
     private Integer hotel_id;
 
+    @ManyToOne
+    @JoinColumn(name = "idmiasta"/*, insertable = false, updatable = false*/)
+    private panstwa_miasta panstwa_miasta;
+
+
     public Integer getId() {
         return id;
     }
@@ -81,13 +85,13 @@ public class oferty {
         this.id = id;
     }
 
-    public Integer getIdmiasta() {
+/*    public Integer getIdmiasta() {
         return idmiasta;
     }
 
     public void setIdmiasta(Integer idmiasta) {
         this.idmiasta = idmiasta;
-    }
+    }*/
 
     public Date getData_od() {
         return data_od;
@@ -231,5 +235,13 @@ public class oferty {
 
     public void setHotel_id(Integer hotel_id) {
         this.hotel_id = hotel_id;
+    }
+
+    public panstwa_miasta getPanstwa_miasta() {
+        return panstwa_miasta;
+    }
+
+    public void setPanstwa_miasta(panstwa_miasta panstwa_miasta) {
+        this.panstwa_miasta = panstwa_miasta;
     }
 }

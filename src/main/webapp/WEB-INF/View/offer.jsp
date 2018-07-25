@@ -26,30 +26,30 @@
     <link rel="stylesheet" href="https://v40.pingendo.com/assets/4.0.0/default/theme.css" type="text/css">
 
 <body>
-<div class="collapse bg-dark" id="navbarHeader">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-7 py-4">
-                <h4>About</h4>
-                <p class="text-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-            <div class="col-md-3 offset-md-1 py-4">
-                <h4>Contact</h4>
-                <ul class="list-unstyled">
-                    <li>
-                        <a href="#" class="text-secondary">Follow on Twitter</a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-secondary">Like on Facebook</a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-secondary">Email me</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
+<%--<div class="collapse bg-dark" id="navbarHeader">--%>
+    <%--<div class="container">--%>
+        <%--<div class="row">--%>
+            <%--<div class="col-md-7 py-4">--%>
+                <%--<h4>About</h4>--%>
+                <%--<p class="text-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>--%>
+            <%--</div>--%>
+            <%--<div class="col-md-3 offset-md-1 py-4">--%>
+                <%--<h4>Contact</h4>--%>
+                <%--<ul class="list-unstyled">--%>
+                    <%--<li>--%>
+                        <%--<a href="#" class="text-secondary">Follow on Twitter</a>--%>
+                    <%--</li>--%>
+                    <%--<li>--%>
+                        <%--<a href="#" class="text-secondary">Like on Facebook</a>--%>
+                    <%--</li>--%>
+                    <%--<li>--%>
+                        <%--<a href="#" class="text-secondary">Email me</a>--%>
+                    <%--</li>--%>
+                <%--</ul>--%>
+            <%--</div>--%>
+        <%--</div>--%>
+    <%--</div>--%>
+<%--</div>--%>
 
 <jsp:include page="menu.jsp" />
 <div class="">
@@ -95,8 +95,8 @@
                                 <%-- Edytuj cene, jakaś grafika żeby była widoczna.--%>
 
                             <li>${offerAtrr.cena}</li>
-                            <li>Two</li>
-                            <li>Three</li>
+                            <li>${offerAtrr.data_od} - ${offerAtrr.data_do}</li>
+                            <li>${offerAtrr.panstwa_miasta.nazwa_miasta}</li>
                         </ul>
                         <a href="/addReservation?id=${offerAtrr.id}" class="btn btn-outline-primary ml-auto">Rezerwacja</a>
                         <a href="/addPurchase?id=${offerAtrr.id}" class="btn btn-outline-primary text-center mr-auto">&nbsp; &nbsp; Zakup &nbsp; &nbsp;</a>

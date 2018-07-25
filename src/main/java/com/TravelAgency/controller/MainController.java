@@ -1,16 +1,9 @@
 package com.TravelAgency.controller;
 
 import com.TravelAgency.MyUserDetails;
-import com.TravelAgency.UserData;
-import com.TravelAgency.dao.DaneUzytkownikaDAO;
-import com.TravelAgency.dao.OfertyDAO;
-import com.TravelAgency.dao.RezerwacjaDAO;
-import com.TravelAgency.dao.ZakupyDAO;
+import com.TravelAgency.dao.*;
 import com.TravelAgency.dto.RegisterDTO;
-import com.TravelAgency.entity.dane_uzytkownika;
-import com.TravelAgency.entity.oferty;
-import com.TravelAgency.entity.rezerwacje;
-import com.TravelAgency.entity.zakupy;
+import com.TravelAgency.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -19,7 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import javax.validation.Valid;
 import java.sql.Date;
@@ -28,8 +21,10 @@ import java.util.List;
 /**
  * Created by Marcin on 17.04.2018.
  */
+
 @Controller
 public class MainController {
+
 
     @Autowired
     DaneUzytkownikaDAO daneDAO;
@@ -39,6 +34,9 @@ public class MainController {
 
     @Autowired
     RezerwacjaDAO rezerwacjaDAO;
+
+    @Autowired
+    RezerwacjeUzytkownikaDAO rezerwacjaDAOtest;
 
     @Autowired
     ZakupyDAO zakupyDAO;
@@ -112,18 +110,27 @@ public class MainController {
 
         return "album";
     }
-
-    @RequestMapping("/user_profile")
-    public String userProfile(){return "user_profile";}
-
-    @RequestMapping("/about")
-    public String about(){return "about";}
+//    @RequestMapping("/about")
+//    public String about(){return "about";}
 
     @RequestMapping("/opinions")
     public String opinions(){return "opinions";}
 
     @RequestMapping("/contact")
     public String contact(){return "contact";}
+
+    @RequestMapping("/user_reservations")
+    public String userReservations( Model model){
+        List<rezerwacje> rezerwacjeList = rezerwacjaDAO.userReservations(Integer.toString(daneUyztkownika.getUserData().getId()));
+
+        List<RezerwacjeUzytkownika> rezerwacjeList2 = rezerwacjaDAOtest.userReservations("123");
+
+        System.out.println("#### rezerwacjeList2.size=" + rezerwacjeList2.size());
+
+        model.addAttribute("rezerwacje", rezerwacjeList2);
+
+        return "user_reservations";
+    }
 
     @RequestMapping("/offer")  /// @RequestParm wymaga użycie pewnych parametrów
     public String offer1(@RequestParam(name = "id", defaultValue = "0", required = false)String ofertaId, Model model){

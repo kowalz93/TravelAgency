@@ -19,7 +19,6 @@ import java.util.List;
 public class DaneUzytkownikaDAO {
     @Autowired
     private SessionFactory sessionFactory;
-
     public void save(dane_uzytkownika dane){
         Session session = sessionFactory.getCurrentSession();
 

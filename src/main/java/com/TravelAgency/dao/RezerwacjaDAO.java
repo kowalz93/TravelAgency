@@ -35,4 +35,12 @@ public class RezerwacjaDAO {
 
         return lista.size();
     }
+    public List<rezerwacje> userReservations(String uzytkownikID) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("from rezerwacje where uzytkownik_id = :uzytkownikID", rezerwacje.class);
+        query.setParameter("uzytkownikID", uzytkownikID);
+
+        List<rezerwacje> lista = query.list();
+        return lista;
+    }
 }
