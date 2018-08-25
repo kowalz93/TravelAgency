@@ -29,7 +29,7 @@
         <security:intercept-url pattern="/offer" access="permitAll"/>
         <security:intercept-url pattern="/login" access="permitAll" />
         <security:intercept-url pattern="/register" access="permitAll" />
-
+        <security:intercept-url pattern="/resources/**" access="permitAll" />
 
         <security:intercept-url pattern="/**" access="isAuthenticated()" />
 
@@ -55,7 +55,8 @@
         <constructor-arg value="11"/>
     </bean>
 
-    <mvc:resources mapping="/resources/**" location="/WEB-INF/photos/" />
+    <mvc:resources mapping="/resources/**" location="/photos/" />
+    <mvc:default-servlet-handler/>
     <mvc:annotation-driven />
 
 </beans>

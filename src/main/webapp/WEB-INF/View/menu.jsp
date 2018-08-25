@@ -32,6 +32,15 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav text-uppercase mr-auto">
+                <li class="nav-item m-1 text-uppercase">
+                    <a class="nav-link" href="/home">
+                        <b class="text-dark">
+                            <b class="text-dark">
+                                <span style="font-weight: normal;">Strona Główna</span>
+                            </b>
+                        </b>
+                    </a>
+                </li>
                 <li class="nav-item text-dark m-1">
                     <a class="nav-link" href="/album">
                         <b class="text-dark">
@@ -50,15 +59,6 @@
                         </b>
                     </a>
                 </li>
-                <%--<li class="nav-item m-1 text-dark">--%>
-                    <%--<a class="nav-link text-white" href="/about">--%>
-                        <%--<b>--%>
-                            <%--<b class="text-dark">--%>
-                                <%--<span style="font-weight: normal;">O nas</span>--%>
-                            <%--</b>--%>
-                        <%--</b>--%>
-                    <%--</a>--%>
-                <%--</li>--%>
                 <li class="nav-item m-1 text-uppercase">
                     <a class="nav-link" href="/opinions">
                         <b class="text-dark">

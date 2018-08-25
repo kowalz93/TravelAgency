@@ -71,6 +71,19 @@
                             </tr>
                         </c:forEach>
 
+                        <c:forEach items="${zamowienia}" var="item">
+                            <%--brak relazji w bazie dnaych--%>
+                            <tr class="">
+                                <td class="border border-info" >${item.nr_zamowienia}</td>
+                                <td class="border-info border" style="text-align: center">${item.data_rezerwacji}</td>
+                                <td class="border border-info" style="text-align: center">${item.data_anulowania}</td>
+                                <td class="border border-info" style="text-align: center">${item.termin_platnosci}</td>
+                                <td class="border border-info" style="text-align: center">${item.data_od}</td>
+                                <td class="border border-info" style="text-align: center">${item.data_zakupu}</td>
+                                <td class="border border-info">${item.status}</td>
+                                <td class="border border-info" style="text-align: right">${item.cena}</td>
+                            </tr>
+                        </c:forEach>
 
                     </tbody>
                 </table>

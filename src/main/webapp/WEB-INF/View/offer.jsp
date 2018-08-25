@@ -26,31 +26,6 @@
     <link rel="stylesheet" href="https://v40.pingendo.com/assets/4.0.0/default/theme.css" type="text/css">
 
 <body>
-<%--<div class="collapse bg-dark" id="navbarHeader">--%>
-    <%--<div class="container">--%>
-        <%--<div class="row">--%>
-            <%--<div class="col-md-7 py-4">--%>
-                <%--<h4>About</h4>--%>
-                <%--<p class="text-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>--%>
-            <%--</div>--%>
-            <%--<div class="col-md-3 offset-md-1 py-4">--%>
-                <%--<h4>Contact</h4>--%>
-                <%--<ul class="list-unstyled">--%>
-                    <%--<li>--%>
-                        <%--<a href="#" class="text-secondary">Follow on Twitter</a>--%>
-                    <%--</li>--%>
-                    <%--<li>--%>
-                        <%--<a href="#" class="text-secondary">Like on Facebook</a>--%>
-                    <%--</li>--%>
-                    <%--<li>--%>
-                        <%--<a href="#" class="text-secondary">Email me</a>--%>
-                    <%--</li>--%>
-                <%--</ul>--%>
-            <%--</div>--%>
-        <%--</div>--%>
-    <%--</div>--%>
-<%--</div>--%>
-
 <jsp:include page="menu.jsp" />
 <div class="">
     <div class="container-fluid">
@@ -62,23 +37,26 @@
                         <div id="carousel" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img class="d-block w-100" src="../../Photos/barcelona.jpg"> </div>
+                                    <img class="img-fluid" src="/resources/${offerAtrr.zdjecie1}" width="100" height="100"> </div>
                                 <div class="carousel-item">
-                                    <img class="d-block w-100 img-fluid" src="../../Photos/beach.jpg">
-                                    <div class="carousel-caption">
-                                        <h3>Second slide label</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                    </div>
+                                    <img class="img-fluid" src="/resources/${offerAtrr.zdjecie2}" width="100" height="100">
+                                    <%--<div class="carousel-caption">--%>
+                                        <%--<h3>Second slide label</h3>--%>
+                                        <%--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>--%>
+                                    <%--</div>--%>
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="img-fluid" src="../../Photos/Tunezja2.jpg">
-                                    <div class="carousel-caption">
+                                    <img class="img-fluid" src="/resources/${offerAtrr.zdjecie3}" width="600" height="600">
+                                    <%--<div class="carousel-caption">
                                         <h2>Title</h2>
                                         <p>Description</p>
-                                    </div>
+                                    </div>--%>
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="img-fluid" src="/resources/${offerAtrr.zdjecie4}" width="100" height="100" align="center">
                                 </div>
                             </div>
-                            <a class="carousel-control-prev" href="../../Photos/Tunezja1.jpg" role="button" data-slide="prev" target="_blank">
+                            <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon"></span>
                                 <span class="sr-only">Previous</span>
                             </a>
@@ -135,8 +113,8 @@
                     <img src="https://pingendo.github.io/templates/sections/assets/stories_2.jpg" class="img-fluid"> </a>
             </div>
             <div class="col-md-3 col-6">
-                <a href="../photos/offer/Tunezja3.jpg">
-                    <img src="https://pingendo.github.io/templates/sections/assets/stories_3.jpg" class="img-fluid"> </a>
+                <a href="/resources/${offerAtrr.zdjecie3}">
+                    <img src="/resources/${offerAtrr.zdjecie3}" class="img-fluid"> </a>
             </div>
             <div class="col-md-3 col-6">
                 <a href="../photos/offer/Tunezja4.jpg">
@@ -264,9 +242,9 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<pingendo onclick="window.open('https://pingendo.com/', '_blank')" style="cursor:pointer;position: fixed;bottom: 10px;right:10px;padding:4px;background-color: #00b0eb;border-radius: 8px; width:250px;display:flex;flex-direction:row;align-items:center;justify-content:center;font-size:14px;color:white">Made with Pingendo Free&nbsp;&nbsp;
+<%--<pingendo onclick="window.open('https://pingendo.com/', '_blank')" style="cursor:pointer;position: fixed;bottom: 10px;right:10px;padding:4px;background-color: #00b0eb;border-radius: 8px; width:250px;display:flex;flex-direction:row;align-items:center;justify-content:center;font-size:14px;color:white">Made with Pingendo Free&nbsp;&nbsp;
     <img src="https://pingendo.com/site-assets/Pingendo_logo_big.png" class="d-block" alt="Pingendo logo" height="16">
-</pingendo>
+</pingendo>--%>
 </body>
 
 </html>

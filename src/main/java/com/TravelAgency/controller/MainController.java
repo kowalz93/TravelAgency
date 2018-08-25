@@ -12,11 +12,13 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import javax.validation.Valid;
 import java.sql.Date;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by Marcin on 17.04.2018.
@@ -27,7 +29,7 @@ public class MainController {
 
 
     @Autowired
-    DaneUzytkownikaDAO daneDAO;
+    DaneUzytkownikaDAO daneUzytkownikaDAO;
 
     @Autowired
     OfertyDAO ofertyDAO;
@@ -46,6 +48,49 @@ public class MainController {
 
     @Autowired
     MyUserDetails daneUyztkownika;
+
+    @RequestMapping(value = {"/", "/home"})
+    public String home(Model model){
+        List<oferty> listaDatabase =  ofertyDAO.findAllOfferts();
+
+        List<oferty> listaRandom = new ArrayList<>();
+
+        Random generator = new Random();
+
+        if(listaDatabase.size() > 3) {
+            for (;;) {
+                int randomValue = generator.nextInt(listaDatabase.size());
+
+                oferty losowaOferta = listaDatabase.get(randomValue);
+
+                if(listaRandom.size() == 0){
+                    listaRandom.add(losowaOferta);
+                } else {
+                    for (int i = 0; i < listaRandom.size(); i++) {
+                        if (listaRandom.get(i).getId() == losowaOferta.getId()) {
+                            break;
+                        }
+
+                        if (i == listaRandom.size() - 1) {
+                            listaRandom.add(losowaOferta);
+                            break;
+                        }
+                    }
+                }
+
+                if(listaRandom.size() == 3) {
+                    break;
+                }
+
+            }
+        } else {
+            listaRandom.addAll(listaDatabase);
+        }
+
+        model.addAttribute("listaOfert", listaRandom);
+
+        return "home";
+    }
 
     @RequestMapping("/register")
     public String register(@ModelAttribute("form") @Valid RegisterDTO form, BindingResult result){
@@ -68,7 +113,7 @@ public class MainController {
             dane.setNr_kontaktowy(form.getNr_kontaktowy());
             dane.setPesel(form.getPesel());
 
-            daneDAO.save(dane);
+            daneUzytkownikaDAO.save(dane);
             return "redirect:/";
         }
     }
@@ -82,6 +127,7 @@ public class MainController {
     public String album(Model model){
             List<oferty> lista =  ofertyDAO.findAllOfferts();
           model.addAttribute("listaOfert", lista);
+          model.addAttribute("search_type", "normal");
 
         return "album";
     }
@@ -90,23 +136,26 @@ public class MainController {
     public String albumLastMinute(Model model){
         List<oferty> lista =  ofertyDAO.findAllOffertsLastMinute();
         model.addAttribute("listaOfert", lista);
+        model.addAttribute("search_type", "last_minute");
 
         return "album";
     }
 
     @RequestMapping("/search")
-    public String albumSearch(Model model, @RequestParam(value = "input_search", defaultValue = "") String inputSearch){
+    public String albumSearch(Model model, @RequestParam(value = "input_search", defaultValue = "") String inputSearch,
+                              @RequestParam(value = "hidden_search_type", defaultValue = "") String hiddenSearchType){
       /*  System.out.println("#### inputSearch=" +  inputSearch);*/
 
         List<oferty> lista = null;
 
-        if(inputSearch.equals("")){
-            lista =  ofertyDAO.findAllOfferts();
-        } else {
-            lista =  ofertyDAO.findSearch(inputSearch);
-        }
+        System.out.println("####hiddenSearchType" + hiddenSearchType);
+
+
+        lista =  ofertyDAO.findSearch(inputSearch, hiddenSearchType);
+
 
         model.addAttribute("listaOfert", lista);
+        model.addAttribute("search_type", hiddenSearchType);
 
         return "album";
     }
@@ -121,13 +170,13 @@ public class MainController {
 
     @RequestMapping("/user_reservations")
     public String userReservations( Model model){
-        List<rezerwacje> rezerwacjeList = rezerwacjaDAO.userReservations(Integer.toString(daneUyztkownika.getUserData().getId()));
+//        List<rezerwacje> rezerwacjeList = rezerwacjaDAO.userReservations(Integer.toString(daneUyztkownika.getUserData().getId()));
 
-        List<RezerwacjeUzytkownika> rezerwacjeList2 = rezerwacjaDAOtest.userReservations("123");
+        List<RezerwacjeUzytkownika> rezerwacjeList = rezerwacjaDAOtest.userReservations(Integer.toString(daneUyztkownika.getUserData().getId()));
+        List<ZamowieniaUzytkownika> zamowieniaList = rezerwacjaDAOtest.userOrders(Integer.toString(daneUyztkownika.getUserData().getId()));
 
-        System.out.println("#### rezerwacjeList2.size=" + rezerwacjeList2.size());
-
-        model.addAttribute("rezerwacje", rezerwacjeList2);
+        model.addAttribute("rezerwacje", rezerwacjeList);
+        model.addAttribute("zamowienia", zamowieniaList);
 
         return "user_reservations";
     }
@@ -157,8 +206,25 @@ public class MainController {
         rez.setUzytkownik_id(daneUyztkownika.getUserData().getId().toString());
         rez.setId(0);
 
+//        data_od > current_date() and data_od <= current_date() + 7
 
-        if(rezerwacjaDAO.getRezerwacja(ofertaId, daneUyztkownika.getUserData().getId().toString()) == 0) {
+        int ofertaIdNumber = 0;
+        try{
+            ofertaIdNumber = Integer.parseInt(ofertaId);
+        }catch(NumberFormatException ex){
+            ex.printStackTrace();
+        }
+
+        oferty of = ofertyDAO.get(ofertaIdNumber);
+
+        LocalDate localDate = LocalDate.now().plusDays(7);
+        LocalDate dataOdOferty = of.getData_od().toLocalDate();
+        System.out.println("localDate=" + localDate);
+        System.out.println("dataOdOferty=" + dataOdOferty);
+        if(dataOdOferty.compareTo(localDate) <= 0){
+            model.addAttribute("addReservationInfo1", "Nie można dodać rezerwacji, ponieważ jest to oferta last minute");
+            model.addAttribute("addReservationInfo2", "false");
+        } else if(rezerwacjaDAO.getRezerwacja(ofertaId, daneUyztkownika.getUserData().getId().toString()) == 0) {
             rezerwacjaDAO.save(rez);
             model.addAttribute("addReservationInfo1", "Rezerwacja została dodana pomyślnie");
             model.addAttribute("addReservationInfo2", "true");
@@ -166,14 +232,7 @@ public class MainController {
             model.addAttribute("addReservationInfo1", "Nie można dodać rezerwacji, ponieważ istnieje juz ona w bazie danych");
             model.addAttribute("addReservationInfo2", "false");
         }
-        ////// kopia z metody offer
-        int ofertaIdNumber = 0;
-        try{
-            ofertaIdNumber = Integer.parseInt(ofertaId);
-        }catch(NumberFormatException ex){
-            ex.printStackTrace();
-        }
-        oferty of = ofertyDAO.get(ofertaIdNumber);
+
         model.addAttribute("offerAtrr", of);
 
         return "offer";

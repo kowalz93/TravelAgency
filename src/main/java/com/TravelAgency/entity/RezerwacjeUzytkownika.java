@@ -1,9 +1,8 @@
 package com.TravelAgency.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.hibernate.annotations.Immutable;
+
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Date;
 
@@ -12,6 +11,7 @@ import java.sql.Date;
  */
 @Entity
 @Table(name = "RezerwacjeUzytkownika")
+@Immutable
 public class RezerwacjeUzytkownika {
 
     @Column
@@ -101,5 +101,19 @@ public class RezerwacjeUzytkownika {
 
     public void setCena(BigDecimal cena) {
         this.cena = cena;
+    }
+
+    @Override
+    public String toString() {
+        return "RezerwacjeUzytkownika{" +
+                "nr_zamowienia='" + nr_zamowienia + '\'' +
+                ", data_rezerwacji=" + data_rezerwacji +
+                ", data_anulowania=" + data_anulowania +
+                ", termin_platnosci=" + termin_platnosci +
+                ", data_od=" + data_od +
+                ", data_zakupu=" + data_zakupu +
+                ", status='" + status + '\'' +
+                ", cena=" + cena +
+                '}';
     }
 }

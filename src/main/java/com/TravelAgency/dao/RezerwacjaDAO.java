@@ -16,7 +16,7 @@ import java.util.List;
  */
 @Repository
 @Transactional
-public class RezerwacjaDAO {
+public class RezerwacjaDAO extends OfertyDAO {
     @Autowired
     private SessionFactory sessionFactory;
 

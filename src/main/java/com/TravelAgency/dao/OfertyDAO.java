@@ -15,7 +15,7 @@ import java.util.List;
  */
 @Repository
 @Transactional
-public class OfertyDAO {
+public class OfertyDAO extends DaneUzytkownikaDAO {
     @Autowired
     private SessionFactory sessionFactory;
 
@@ -34,21 +34,40 @@ public class OfertyDAO {
 
     public List<oferty> findAllOfferts() {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("from oferty where data_od - 5 > current_date()", oferty.class);
+        Query query = session.createQuery("from oferty where data_od - 7 > current_date()", oferty.class);
         List<oferty> lista = query.list();
         return lista;
     }
 
     public List<oferty> findAllOffertsLastMinute() {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("from oferty where data_od > current_date() and data_od <= current_date() + 5", oferty.class);
+        Query query = session.createQuery("from oferty where data_od > current_date() and data_od <= current_date() + 7", oferty.class);
         List<oferty> lista = query.list();
         return lista;
     }
 
-    public List<oferty> findSearch(String searchValue) {
+    public List<oferty> findSearch(String searchValue, String searchType) {
+
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("from oferty where tytul like '%" + searchValue +"%' or opis like '%" + searchValue + "%'", oferty.class);
+        Query query = null;
+
+        if(searchValue.equals("")){
+            if(searchType.equals("normal")){
+                query = session.createQuery("from oferty where data_od - 7 > current_date()", oferty.class);
+            }else{
+                query = session.createQuery("from oferty where data_od > current_date() and data_od <= current_date() + 7", oferty.class);
+            }
+        }else{
+            if(searchType.equals("normal")){
+                query = session.createQuery("from oferty where (tytul like '%" + searchValue +"%' or opis like '%"
+                        + searchValue + "%') and data_od - 7 > current_date()", oferty.class);
+
+            }else{
+                query = session.createQuery("from oferty where (tytul like '%" + searchValue +"%' or opis like '%"
+                        + searchValue + "%') and data_od > current_date() and data_od <= current_date() + 7", oferty.class);
+            }
+        }
+
         List<oferty> lista = query.list();
         return lista;
     }

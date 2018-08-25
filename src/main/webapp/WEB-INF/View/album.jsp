@@ -61,7 +61,9 @@
                 <p class="lead text-muted">Wpisz szukane słowo</p>
                 <form class="form-inline m-0 justify-content-center m-3" method="post" action="/search">
                     <input class="form-control mr-2" name="input_search" id="input_search" type="text" placeholder="Wyszukaj">
+                    <input type="hidden" name="hidden_search_type" value="${search_type}">
                     <button class="btn btn-primary " style="background-color:#00b2ff"  type="submit">Wyszukaj</button>
+
                 </form>
             </div>
         </div>
@@ -69,25 +71,36 @@
 </div>
 <div class="py-4 bg-primary">
     <div class="container">
+        <c:if test="${empty listaOfert}">
+            <div class="alert alert-primary" role="alert" style="text-align: center">
+                Nie znaleziono żadnej oferty spełniającej warunki wyszukiwania.
+            </div>
+        </c:if>
         <div class="row">
-            <c:forEach items="${listaOfert}" var="item">
-                <div class="col-md-4 p-3">
-                    <div class="card box-shadow">
-                        <img class="card-img-top" src="https://pingendo.com/assets/photos/wireframe/photo-1.jpg">
-                        <div class="card-header">${item.tytul}
-                            <br> </div>
-                        <div class="card-body">
-                            <p class="card-text">${item.opis}</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <a class="btn btn-primary" href="/offer?id=${item.id}">Szczegóły</a>
+
+            <c:if test="${not empty listaOfert}">
+                <c:forEach items="${listaOfert}" var="item">
+                    <div class="col-md-4 p-3">
+                        <div class="card box-shadow">
+                            <img class="card-img-top" src="https://pingendo.com/assets/photos/wireframe/photo-1.jpg">
+                            <div class="card-header">${item.tytul}
+                                <br> </div>
+                            <div class="card-body">
+                                <p class="card-text" style="min-height: 3em; max-height: 3em; overflow: hidden;">${item.opis}</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a class="btn btn-primary" href="/offer?id=${item.id}">Szczegóły</a>
+                                    </div>
+                                    <small class="text-muted">9 mins</small>
                                 </div>
-                                <small class="text-muted">9 mins</small>
+
                             </div>
                         </div>
                     </div>
-                </div>
-            </c:forEach>
+                </c:forEach>
+            </c:if>
+
+
         </div>
     </div>
 </div>
@@ -102,9 +115,9 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<pingendo onclick="window.open('https://pingendo.com/', '_blank')" style="cursor:pointer;position: fixed;bottom: 10px;right:10px;padding:4px;background-color: #00b0eb;border-radius: 8px; width:250px;display:flex;flex-direction:row;align-items:center;justify-content:center;font-size:14px;color:white">Made with Pingendo Free&nbsp;&nbsp;
+<%--<pingendo onclick="window.open('https://pingendo.com/', '_blank')" style="cursor:pointer;position: fixed;bottom: 10px;right:10px;padding:4px;background-color: #00b0eb;border-radius: 8px; width:250px;display:flex;flex-direction:row;align-items:center;justify-content:center;font-size:14px;color:white">Made with Pingendo Free&nbsp;&nbsp;
     <img src="https://pingendo.com/site-assets/Pingendo_logo_big.png" class="d-block" alt="Pingendo logo" height="16">
-</pingendo>
+</pingendo>--%>
 </body>
 
 </html>

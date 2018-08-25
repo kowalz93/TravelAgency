@@ -27,86 +27,6 @@
 </head>
 
 <body class="bg-info">
-<%--<nav class="navbar navbar-expand-md navbar-dark bg-primary">--%>
-    <%--<div class="container">--%>
-        <%--<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">--%>
-            <%--<span class="navbar-toggler-icon"></span>--%>
-        <%--</button>--%>
-        <%--<div class="collapse navbar-collapse" id="navbarSupportedContent">--%>
-            <%--<ul class="navbar-nav text-uppercase mr-auto">--%>
-                <%--<li class="nav-item text-dark m-1">--%>
-                    <%--<a class="nav-link" href="Oferta/oferta.html">--%>
-                        <%--<b class="text-dark">--%>
-                            <%--<b class="text-dark">--%>
-                                <%--<span style="font-weight: normal;">Oferta</span>--%>
-                            <%--</b>--%>
-                        <%--</b>--%>
-                    <%--</a>--%>
-                <%--</li>--%>
-                <%--<li class="nav-item m-1 text-dark">--%>
-                    <%--<a class="nav-link text-dark" href="#">--%>
-                        <%--<b class="text-dark">--%>
-                            <%--<b class="text-dark">--%>
-                                <%--<span style="font-weight: normal;">Last Minute</span>--%>
-                            <%--</b>--%>
-                        <%--</b>--%>
-                    <%--</a>--%>
-                <%--</li>--%>
-                <%--<li class="nav-item m-1 text-dark">--%>
-                    <%--<a class="nav-link text-white" href="#">--%>
-                        <%--<b>--%>
-                            <%--<b class="text-dark">--%>
-                                <%--<span style="font-weight: normal;">O nas</span>--%>
-                            <%--</b>--%>
-                        <%--</b>--%>
-                    <%--</a>--%>
-                <%--</li>--%>
-                <%--<li class="nav-item m-1 text-uppercase">--%>
-                    <%--<a class="nav-link" href="#">--%>
-                        <%--<b class="text-dark">--%>
-                            <%--<b class="text-dark">--%>
-                                <%--<span style="font-weight: normal;">Opinie</span>--%>
-                            <%--</b>--%>
-                        <%--</b>--%>
-                    <%--</a>--%>
-                <%--</li>--%>
-                <%--<li class="nav-item m-1 text-uppercase">--%>
-                    <%--<a class="nav-link" href="#">--%>
-                        <%--<b class="text-dark">--%>
-                            <%--<b class="text-dark">--%>
-                                <%--<span style="font-weight: normal;">Kontakt</span>--%>
-                            <%--</b>--%>
-                        <%--</b>--%>
-                    <%--</a>--%>
-                <%--</li>--%>
-            <%--</ul>--%>
-            <%--<a class="btn btn-default navbar-btn btn-sm m-1 btn-warning" href="/login" >--%>
-                <%--<b>--%>
-                    <%--<b>Logowanie</b>--%>
-                <%--</b>--%>
-            <%--</a>--%>
-            <%--<a class="btn btn-default navbar-btn m-1 btn-warning btn-sm" href="/register">--%>
-                <%--<b class="text-dark">--%>
-                    <%--<b>Rejstracja</b>--%>
-                <%--</b>--%>
-            <%--</a>--%>
-        <%--</div>--%>
-    <%--</div>--%>
-    <%--<span class="navbar-text">--%>
-      <%--<p class="mb-0 text-dark text-left">--%>
-        <%--<u>pon-pt</u> &nbsp;--%>
-        <%--<b>9:00 - 21:00</b>&nbsp;--%>
-        <%--<br>--%>
-        <%--<u>sb-nd</u> &nbsp;--%>
-        <%--<b>10:00 - 16:00</b>&nbsp;--%>
-        <%--<br>--%>
-        <%--<u>Infolinia</u>--%>
-        <%--<b> +48 45 858 85 85</b>--%>
-        <%--<br>--%>
-      <%--</p>--%>
-    <%--</span>--%>
-<%--</nav>--%>
-
 <jsp:include page="menu.jsp" />
 
 <div class="">
@@ -173,9 +93,9 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<pingendo onclick="window.open('https://pingendo.com/', '_blank')" style="cursor:pointer;position: fixed;bottom: 10px;right:10px;padding:4px;background-color: #00b0eb;border-radius: 8px; width:180px;display:flex;flex-direction:row;align-items:center;justify-content:center;font-size:14px;color:white">Made with Pingendo&nbsp;&nbsp;
+<%--<pingendo onclick="window.open('https://pingendo.com/', '_blank')" style="cursor:pointer;position: fixed;bottom: 10px;right:10px;padding:4px;background-color: #00b0eb;border-radius: 8px; width:180px;display:flex;flex-direction:row;align-items:center;justify-content:center;font-size:14px;color:white">Made with Pingendo&nbsp;&nbsp;
     <img src="https://pingendo.com/site-assets/Pingendo_logo_big.png" class="d-block" alt="Pingendo logo" height="16">
-</pingendo>
+</pingendo>--%>
 </body>
 
 </html>

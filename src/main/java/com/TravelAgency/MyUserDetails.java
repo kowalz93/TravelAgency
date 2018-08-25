@@ -13,7 +13,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  */
 public class MyUserDetails implements UserDetailsService {
     @Autowired
-    DaneUzytkownikaDAO userDAO;
+    DaneUzytkownikaDAO daneUzytkownikaDAO;
 
     @Autowired
     PasswordEncoder passwordEncoder;
@@ -21,7 +21,7 @@ public class MyUserDetails implements UserDetailsService {
     private dane_uzytkownika userData;
 
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        dane_uzytkownika user = userDAO.getByUsername(username);
+        dane_uzytkownika user = daneUzytkownikaDAO.getByUsername(username);
 
         CharSequence sequence = "haslo";
         System.out.println("$$$ haslo=" +  passwordEncoder.encode(sequence));
