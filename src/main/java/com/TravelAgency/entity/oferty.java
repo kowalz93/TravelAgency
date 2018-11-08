@@ -69,12 +69,12 @@ public class oferty {
     @Column
     private String szczegoly_oferty;
 
-    @Column
+    @Column(insertable = false, updatable = false)
     private Integer hotel_id;
 
-    @ManyToOne
-    @JoinColumn(name = "idmiasta"/*, insertable = false, updatable = false*/)
-    private panstwa_miasta panstwa_miasta;
+    @OneToOne
+    @JoinColumn(name = "hotel_id"/*, insertable = false, updatable = false*/)
+    private hotele hotel;
 
 
     public Integer getId() {
@@ -85,13 +85,9 @@ public class oferty {
         this.id = id;
     }
 
-/*    public Integer getIdmiasta() {
-        return idmiasta;
-    }
+    public hotele getHotel() {return hotel;}
 
-    public void setIdmiasta(Integer idmiasta) {
-        this.idmiasta = idmiasta;
-    }*/
+    public void setHotel(hotele hotel) {this.hotel = hotel;}
 
     public Date getData_od() {
         return data_od;
@@ -237,11 +233,11 @@ public class oferty {
         this.hotel_id = hotel_id;
     }
 
-    public panstwa_miasta getPanstwa_miasta() {
+  /*  public panstwa_miasta getPanstwa_miasta() {
         return panstwa_miasta;
     }
 
     public void setPanstwa_miasta(panstwa_miasta panstwa_miasta) {
         this.panstwa_miasta = panstwa_miasta;
-    }
+    }*/
 }

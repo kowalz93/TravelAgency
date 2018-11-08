@@ -12,15 +12,26 @@ public class panstwa_miasta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column
-    private Integer idPanstwa;
+//    @Column
+//    private Integer idPanstwa;
 
     @Column
     private String nazwa_miasta;
 
-    public Integer getId() {
-        return id;
-    }
+    @Column(insertable = false, updatable = false)
+    private Integer idPanstwa;
+
+    @OneToOne
+    @JoinColumn(name = "idPanstwa")
+    private panstwa panstwo;
+
+    public panstwa getPanstwo() {return panstwo;}
+
+    public void setPanstwo(panstwa panstwo) {this.panstwo = panstwo;}
+
+
+
+    public Integer getId() {return id;}
 
     public void setId(Integer id) {
         this.id = id;

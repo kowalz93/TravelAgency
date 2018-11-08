@@ -22,6 +22,20 @@ public class hotele {
     @Column
     private String standard_hotelu;
 
+    @Column(insertable = false, updatable = false)
+    private Integer miasto_id;
+
+    public panstwa_miasta getMiasto() {return miasto;}
+
+    public void setMiasto(panstwa_miasta miasto) {this.miasto = miasto;}
+
+    @OneToOne
+    @JoinColumn(name = "miasto_id")
+    private panstwa_miasta miasto;
+
+    public Integer getMiasto_id() {return miasto_id;}
+
+    public void setMiasto_id(Integer miasto_id) {this.miasto_id = miasto_id;}
 
     public Integer getId() {
         return id;

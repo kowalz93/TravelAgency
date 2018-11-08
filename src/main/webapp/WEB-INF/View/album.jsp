@@ -81,17 +81,19 @@
             <c:if test="${not empty listaOfert}">
                 <c:forEach items="${listaOfert}" var="item">
                     <div class="col-md-4 p-3">
-                        <div class="card box-shadow">
-                            <img class="card-img-top" src="https://pingendo.com/assets/photos/wireframe/photo-1.jpg">
-                            <div class="card-header">${item.tytul}
-                                <br> </div>
+                        <div class="card box-shadow" style="height: 400px;">
+                            <img class="card-img-top mx-auto" src="/resources/${item.zdjecie1}">
+                            <div class="card-header">
+                                    <b>${item.tytul}</b>
+
+                                    <br>
+                            </div>
                             <div class="card-body">
-                                <p class="card-text" style="min-height: 3em; max-height: 3em; overflow: hidden;">${item.opis}</p>
+                                <p class="card-text" style="min-height: 4.5em; max-height: 4.5em; overflow: hidden;">${item.opis}</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <a class="btn btn-primary" href="/offer?id=${item.id}">Szczegóły</a>
                                     </div>
-                                    <small class="text-muted">9 mins</small>
                                 </div>
 
                             </div>

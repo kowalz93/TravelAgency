@@ -37,23 +37,16 @@
                         <div id="carousel" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img class="img-fluid" src="/resources/${offerAtrr.zdjecie1}" width="100" height="100"> </div>
-                                <div class="carousel-item">
-                                    <img class="img-fluid" src="/resources/${offerAtrr.zdjecie2}" width="100" height="100">
-                                    <%--<div class="carousel-caption">--%>
-                                        <%--<h3>Second slide label</h3>--%>
-                                        <%--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>--%>
-                                    <%--</div>--%>
+                                    <img class="d-block w-200 mx-auto" src="/resources/${offerAtrr.zdjecie1}">
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="img-fluid" src="/resources/${offerAtrr.zdjecie3}" width="600" height="600">
-                                    <%--<div class="carousel-caption">
-                                        <h2>Title</h2>
-                                        <p>Description</p>
-                                    </div>--%>
+                                    <img class="d-block w-200 mx-auto" src="/resources/${offerAtrr.zdjecie2}">
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="img-fluid" src="/resources/${offerAtrr.zdjecie4}" width="100" height="100" align="center">
+                                    <img class="d-block w-200 mx-auto" src="/resources/${offerAtrr.zdjecie3}">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-200 mx-auto" src="/resources/${offerAtrr.zdjecie4}">
                                 </div>
                             </div>
                             <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
@@ -66,16 +59,26 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-md-4 py-4">
-                        <ul class="">
+
+                    <div class="col-md-4 py-4 " style="overflow-wrap: break-word;">
+                        <ul  class="border">
+
+
                             <%--"expresion lang"--%>
                             ${offerAtrr.opis}
-                                <%-- Edytuj cene, jakaś grafika żeby była widoczna.--%>
 
-                            <li>${offerAtrr.cena}</li>
-                            <li>${offerAtrr.data_od} - ${offerAtrr.data_do}</li>
-                            <li>${offerAtrr.panstwa_miasta.nazwa_miasta}</li>
+                            <p></p>
+
+                                <li><b>${offerAtrr.cena}</b></li>
+                                <li><b>${offerAtrr.data_od} - ${offerAtrr.data_do}</b></li>
+                                <li><b>Numer oferty ${offerAtrr.id}</b></li>
+                                <li><b>Numer hotelu${offerAtrr.hotel_id}</b> </li>
+                                <li><b>Standard hotelu${offerAtrr.hotel.standard_hotelu}</b> </li>
+                                <li><b>Miasto${offerAtrr.hotel.miasto.nazwa_miasta}</b> </li>
+                                <li><b>Państwo${offerAtrr.hotel.miasto.panstwo.nazwa_panstwa}</b> </li>
+                                <p></p>
                         </ul>
+
                         <a href="/addReservation?id=${offerAtrr.id}" class="btn btn-outline-primary ml-auto">Rezerwacja</a>
                         <a href="/addPurchase?id=${offerAtrr.id}" class="btn btn-outline-primary text-center mr-auto">&nbsp; &nbsp; Zakup &nbsp; &nbsp;</a>
 
@@ -105,25 +108,25 @@
     <div class="container-fluid">
         <div class="row py-5 bg-info">
             <div class="col-md-3 col-6">
-                <a href="../photos/offer/Tunezja1.jpg">
-                    <img src="https://pingendo.github.io/templates/sections/assets/stories_6.jpg" class="img-fluid"> </a>
+                <a href="/resources/${offerAtrr.zdjecie1}">
+                    <img class="img-fluid mx-auto" src="/resources/${offerAtrr.zdjecie1}" class="img-fluid mx-auto"> </a>
             </div>
             <div class="col-md-3 col-6">
-                <a href="../photos/offer/Tunezja2.jpg">
-                    <img src="https://pingendo.github.io/templates/sections/assets/stories_2.jpg" class="img-fluid"> </a>
+                <a href="/resources/${offerAtrr.zdjecie2}">
+                    <img class="img-fluid mx-auto" src="/resources/${offerAtrr.zdjecie2}" class="img-fluid mx-auto"> </a>
             </div>
             <div class="col-md-3 col-6">
                 <a href="/resources/${offerAtrr.zdjecie3}">
-                    <img src="/resources/${offerAtrr.zdjecie3}" class="img-fluid"> </a>
+                    <img class="img-fluid mx-auto" src="/resources/${offerAtrr.zdjecie3}" class="img-fluid mx-auto"> </a>
             </div>
             <div class="col-md-3 col-6">
-                <a href="../photos/offer/Tunezja4.jpg">
-                    <img src="https://pingendo.github.io/templates/sections/assets/stories_1.jpg" class="img-fluid"> </a>
+                <a href="/resources/${offerAtrr.zdjecie4}">
+                    <img class="img-fluid mx-auto" src="/resources/${offerAtrr.zdjecie4}" class="img-fluid mx-auto"> </a>
             </div>
         </div>
     </div>
 </div>
-<div class="bg-info">
+<div class="bg-info" style="overflow-wrap: break-word;">
     <div class="container">
         <div class="row text-center">
             <div class="col-md-12">
@@ -213,7 +216,7 @@
         </div>
     </div>
 </div>
-<div class="py-3">
+<div class="py-3" style="overflow-wrap: break-word;">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
